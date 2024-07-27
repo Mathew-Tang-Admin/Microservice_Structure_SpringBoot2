@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>switch.html</title>
+    <!-- 引入 layui.css -->
+    <link th:href="@{/layui/css/layui.2.8.17.css}" rel="stylesheet">
+    <!-- 引入 layui.js -->
+    <script th:src="@{/layui/layui.2.8.17.js}"></script>
+    <script th:src="@{/js/jquery.3.4.1.js}"></script>
+    <style>
+        .h3 {
+            border-bottom: 1px solid #dcdcdc;
+            margin: 10px 20%;
+        }
+        .layui-table {
+            width: 75%;
+            margin: 10px auto;
+        }
+        p {
+            line-height: 30px;
+            /*border-bottom: 1px solid #dcdcdc;*/
+            /*text-align: center;*/
+        }
+        /*.content {
+            border-bottom: 1px;
+            margin: 10px 100px;
+        }*/
+    </style>
+</head>
+<body>
+
+    <div style="text-align: center">
+        <h3 class="h3"> switch 使用 </h3>
+        <div th:switch="${sex}">
+            <p th:case="女">性别：女</p>
+            <p th:case="男">性别：男</p>
+            <p th:case="*">性别：保密</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+###
+#GET http://localhost:8080/myBoot/hello
+GET http://localhost:8080/myBoot/myJsp
+
+<> 2023-12-27T021830.200.html

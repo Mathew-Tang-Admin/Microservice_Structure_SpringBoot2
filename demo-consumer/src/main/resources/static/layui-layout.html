@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="/demo/js/jquery.3.4.1.js"></script>
+    <link rel="stylesheet" href="/demo/layui/css/layui.2.8.17.css"/>
+    <script src="/demo/layui/layui.2.8.17.js"></script>
+    <title>layui-layout.html</title>
+</head>
+<body>
+    <form class="layui-form">
+    </form>
+    <div class="layui-container">
+        <div class="layui-form-item">
+            <label class="layui-form-label">验证必填项</label>
+            <div class="layui-input-block">
+                <input type="text" name="username" lay-verify="required" placeholder="请输入" autocomplete="off"
+                       class="layui-input" />
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">验证手机号</label>
+                <div class="layui-input-inline layui-input-wrap">
+                    <input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" lay-reqtext="请填写手机号"
+                           lay-affix="clear" class="layui-input demo-phone" />
+                </div>
+                <div class="layui-form-mid" style="padding: 0 !important">
+                    <button type="button" class="layui-btn layui-btn-primary" lay-on="get-vercode">
+                        获取验证码
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">验证码</label>
+            <div class="layui-input-inline layui-input-wrap">
+                <input type="text" name="vercode" lay-verify="required" autocomplete="off" lay-affix="clear"
+                       class="layui-input" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

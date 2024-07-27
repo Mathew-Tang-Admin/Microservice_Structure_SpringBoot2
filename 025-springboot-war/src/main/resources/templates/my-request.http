@@ -1,0 +1,11 @@
+###
+GET http://localhost:8080/myJsp/main
+
+<> 2024-01-03T002254.200.html
+
+###
+# 本版本为打包为wer包发布到tomcat后，在tomcat端运行成功后，在这里运行controller的接口路径
+# 这里注意，运行的端口需要时tomcat的端口，并且上下文路径需要是在pom.xml配置的"finalName"节点名称
+GET http://localhost:8080/myBoot/main
+
+<> 2024-01-03T005508.200.html

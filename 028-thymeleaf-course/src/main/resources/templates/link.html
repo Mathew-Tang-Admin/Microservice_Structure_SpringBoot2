@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>link.html(链接表达式)</title>
+    <style>
+        .h3 {
+            border-bottom: 1px solid #dcdcdc;
+            margin: 10px 100px;
+        }
+        .content {
+            border-bottom: 1px;
+            margin: 10px 100px;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center">
+        <h3 class="h3">链接表达式: 绝对地址</h3>
+        <a th:href="@{https://www.baidu.com}">链接到百度</a>
+
+        <h3 class="h3">链接表达式: 相对地址</h3>
+        <a th:href="@{/tpl/queryAccount}">相对地址，没有参数</a>
+        <h3 class="content">相对地址，使用字符串连接传递参数</h3>
+        <a th:href="@{'/tpl/queryAccount?id=' + ${userId} }">获取model中数据</a>
+        <h3 class="content">推荐使用传参的方式</h3>
+        <a th:href="@{/tpl/queryAccount(id=${userId})}">获取model中数据(传参)</a>
+        <h3 class="content">传递多个参数</h3>
+        <a th:href="@{/tpl/queryUser(name='lisi',age=20)}">获取model中数据(传参)</a>
+    </div>
+</body>
+</html>

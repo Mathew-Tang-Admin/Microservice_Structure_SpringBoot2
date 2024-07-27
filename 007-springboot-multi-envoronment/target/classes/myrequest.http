@@ -1,0 +1,16 @@
+###
+GET http://localhost:8080/hello
+
+<> 2023-12-25T191125.200.txt
+
+###
+# 多环境配置 - 开发环境
+#GET http://localhost:8081/myDev/hello
+# 多环境配置 - 测试环境
+GET http://localhost:8082/myTest/hello
+# 多环境配置 - 项目上线
+#GET http://localhost:8083/myOnline/hello
+
+<> 2023-12-25T215931.200.txt
+<> 2023-12-25T224000.200.txt
+<> 2023-12-25T223119.200.txt

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="|${#request.getScheme()}://${#request.getServerName()}:${#request.getServerPort()}${#request.getContextPath()}|">
+    <meta charset="UTF-8">
+    <title>utilObject.html(内置的工具类对象)</title>
+    <!-- 引入 layui.css -->
+    <link th:href="@{/layui/css/layui.2.8.17.css}" rel="stylesheet">
+    <!-- 引入 layui.js -->
+    <script th:src="@{/layui/layui.2.8.17.js}"></script>
+    <script th:src="@{/js/jquery.3.4.1.js}"></script>
+    <style>
+        .h3 {
+            border-bottom: 1px solid #dcdcdc;
+            margin: 10px 20%;
+        }
+        .layui-table {
+            width: 75%;
+            margin: 10px auto;
+        }
+        p {
+            line-height: 30px;
+            /*border-bottom: 1px solid #dcdcdc;*/
+            /*text-align: center;*/
+        }
+        /*.content {
+            border-bottom: 1px;
+            margin: 10px 100px;
+        }*/
+    </style>
+</head>
+<body>
+
+    <div style="text-align: center">
+        <h3 class="h3">日期类对象 #dates</h3>
+        <p th:text="${#dates.format(myDate)}"></p>
+        <p th:text="${#dates.format(myDate, 'yyyy-MM-dd')}"></p>
+        <p th:text="${#dates.format(myDate, 'yyyy-MM-dd HH:mm:ss.sss')}"></p>
+        <p th:text="${#dates.year(myDate)}"></p>
+        <p th:text="${#dates.month(myDate)}"></p>
+        <p th:text="${#dates.monthName(myDate)}"></p>
+        <p th:text="${#dates.createNow()}"></p>
+
+        <h3 class="h3">内置工具类#numbers，操作数字的</h3>
+        <p th:text="${#numbers.formatCurrency(myNum)}"></p>
+        <p th:text="${#numbers.formatDecimal(myNum, 5, 2)}"></p>
+
+        <h3 class="h3">内置工具类#strings,操作字符串</h3>
+        <p th:text="${#strings.toUpperCase(myStr)}"></p>
+        <p th:text="${#strings.indexOf(myStr, 'power')}"></p>
+        <p th:text="${#strings.substring(myStr, 2, 5)}"></p>
+        <p th:text="${#strings.substring(myStr, 2)}"></p>
+        <p th:text="${#strings.concat(myStr, ', java开发的黄埔军校')}"></p>
+        <p th:text="${#strings.length(myStr)}"></p>
+        <p th:text="${#strings.length('hello')}"></p>
+        <p th:unless="${#strings.isEmpty(myStr)}">myStr不是null</p>
+
+        <h3 class="h3">内置工具类#lists,操作list集合</h3>
+        <p th:text="${#lists.size(myList)}"></p>
+        <p th:if="${#lists.contains(myList, 'a')}">有成员'a'</p>
+        <p th:if="!${#lists.isEmpty(myList)}">myList有成员</p>
+
+        <h3 class="h3">处理null</h3>
+        <p th:text="${zoo.dog?.name}"></p>
+        <p th:text="${zoo?.cat?.name}"></p>
+
+    </div>
+</body>
+</html>

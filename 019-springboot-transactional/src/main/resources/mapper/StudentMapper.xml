@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjpowernode.dao.StudentMapper">
+    <resultMap id="BaseResultMap" type="com.bjpowernode.model.Student">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="age" jdbcType="INTEGER" property="age" />
+        <result column="height" jdbcType="DOUBLE" property="height" />
+        <result column="birth" jdbcType="DATE" property="birth" />
+        <result column="sex" jdbcType="CHAR" property="sex" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, name, age, height, birth, sex
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+            <include refid="Base_Column_List" />
+        from t_student
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from t_student
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.bjpowernode.model.Student">
+        insert into t_student (id, name, age,
+                                height, birth, sex)
+        values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER},
+                #{height,jdbcType=DOUBLE}, #{birth,jdbcType=DATE}, #{sex,jdbcType=CHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.bjpowernode.model.Student">
+        insert into t_student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="age != null">
+                age,
+            </if>
+            <if test="height != null">
+                height,
+            </if>
+            <if test="birth != null">
+                birth,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="age != null">
+                #{age,jdbcType=INTEGER},
+            </if>
+            <if test="height != null">
+                #{height,jdbcType=DOUBLE},
+            </if>
+            <if test="birth != null">
+                #{birth,jdbcType=DATE},
+            </if>
+            <if test="sex != null">
+                #{sex,jdbcType=CHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.bjpowernode.model.Student">
+        update t_student
+        <set>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="age != null">
+                age = #{age,jdbcType=INTEGER},
+            </if>
+            <if test="height != null">
+                height = #{height,jdbcType=DOUBLE},
+            </if>
+            <if test="birth != null">
+                birth = #{birth,jdbcType=DATE},
+            </if>
+            <if test="sex != null">
+                sex = #{sex,jdbcType=CHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.bjpowernode.model.Student">
+        update t_student
+        set name = #{name,jdbcType=VARCHAR},
+            age = #{age,jdbcType=INTEGER},
+            height = #{height,jdbcType=DOUBLE},
+            birth = #{birth,jdbcType=DATE},
+            sex = #{sex,jdbcType=CHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

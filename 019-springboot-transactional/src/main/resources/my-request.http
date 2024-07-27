@@ -1,0 +1,4 @@
+###
+GET http://localhost:8080/myTrans/addStudent?name=张三&age=20
+
+<> 2023-12-30T224139.200.txt

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>eachMap.html(循环Map)</title>
+    <!-- 引入 layui.css -->
+    <link th:href="@{/layui/css/layui.2.8.17.css}" rel="stylesheet">
+    <!-- 引入 layui.js -->
+    <script th:src="@{/layui/layui.2.8.17.js}"></script>
+    <script th:src="@{/js/jquery.3.4.1.js}"></script>
+    <style>
+        .h3 {
+            border-bottom: 1px solid #dcdcdc;
+            margin: 10px 20%;
+        }
+        .layui-table {
+            width: 75%;
+            margin: 10px auto;
+        }
+        p {
+            line-height: 30px;
+            border-bottom: 1px solid #dcdcdc;
+            text-align: center;
+        }
+        /*.content {
+            border-bottom: 1px;
+            margin: 10px 100px;
+        }*/
+    </style>
+</head>
+<body>
+    <table class="layui-table">
+        <colgroup>
+            <col width="12%">
+            <col width="12%">
+            <col width="12%">
+            <col width="12%">
+            <col width="12%">
+            <col width="12%">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th>编号</th>
+
+                <th>key</th>
+                <th>id</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+
+<!--                <th>value</th>-->
+                <th>姓名</th>
+                <th>是否是<br>尾行</th>
+            </tr>
+        </thead>
+        <tbody>
+<!--            <tr th:each="user,userStat:${userMap}">-->
+            <tr th:each="user:${userMap}">
+<!--                <td th:text="${userStat.index}"></td>-->
+                <td th:text="${userStat.count} + ' / ' + ${userStat.size}"></td>
+
+                <td th:text="${user.key}"></td>
+                <td th:text="${user.value.id}"></td>
+                <td th:text="${user.value.name}"></td>
+                <td th:text="${user.value.sex}"></td>
+                <td th:text="${user.value.age}"></td>
+
+<!--                <td th:text="${user.value}"></td>-->
+                <td th:text="${userStat.current.value.name}"></td>
+                <td th:text="${userStat.last} ? '是' : '否'"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="layui-table">
+        <colgroup>
+            <col width="12%">
+            <col width="12%">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th>编号</th>
+
+                <th>key</th>
+                <th>value</th>
+            </tr>
+        </thead>
+        <tbody>
+<!--            <tr th:each="string,stringStat:${stringMap}">-->
+            <tr th:each="string:${stringMap}">
+                <td th:text="${stringStat.count} + ' / ' + ${stringStat.size}"></td>
+
+                <td th:text="${string.key}"></td>
+                <td th:text="${string.value}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style="text-align: center">
+        <h3 class="h3">循环List&lt;Map&lt;String,SysUser&gt;&gt; map: mapList.get(0) </h3>
+    </div>
+    <table class="layui-table">
+        <colgroup>
+            <col width="9%">
+            <col width="6%">
+            <col width="8%">
+            <col width="8%">
+            <col width="8%">
+            <col width="8%">
+            <col width="6%">
+            <col width="8%">
+            <col width="6%">
+            <col>
+        </colgroup>
+        <tbody>
+<!--            <tr th:each="userMap,userMapStat:${mapList}">-->
+            <tr th:each="userMap:${mapList}">
+                <td th:each="map: ${userMap}">
+                    <p th:text="${map.key}"></p>
+                    <p th:text="${map.value.id}"></p>
+                    <p th:text="${map.value.name}"></p>
+                    <p th:text="${map.value.sex}"></p>
+                    <p th:text="${map.value.age}"></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

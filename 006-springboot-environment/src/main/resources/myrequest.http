@@ -1,0 +1,11 @@
+###
+GET http://localhost:8080/hello
+
+<> 2023-12-25T191125.200.txt
+
+###
+# 修改了应用上下文路径
+GET http://localhost:8080/myBoot/hello
+
+<> 2023-12-25T191710.200.txt
+

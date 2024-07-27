@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="|${#request.getScheme()}://${#request.getServerName()}:${#request.getServerPort()}${#request.getContextPath()}|">
+    <meta charset="UTF-8">
+    <title>custom.html(自定义模板)</title>
+    <!-- 引入 layui.css -->
+    <link th:href="@{/layui/css/layui.2.8.17.css}" rel="stylesheet">
+    <!-- 引入 layui.js -->
+    <script th:src="@{/layui/layui.2.8.17.js}"></script>
+    <script th:src="@{/js/jquery.3.4.1.js}"></script>
+    <style>
+        .h3 {
+            border-bottom: 1px solid #dcdcdc;
+            margin: 10px 20%;
+        }
+        .layui-table {
+            width: 75%;
+            margin: 10px auto;
+        }
+        p {
+            line-height: 30px;
+            /*border-bottom: 1px solid #dcdcdc;*/
+            /*text-align: center;*/
+        }
+        /*.content {
+            border-bottom: 1px;
+            margin: 10px 100px;
+        }*/
+    </style>
+</head>
+<body>
+
+    <div style="text-align: center">
+        <h3 class="h3">插入模板 th:insert</h3>
+        <div th:insert="~{head :: top}">
+        </div>
+
+        <h3 class="h3">插入模板 第二种格式</h3>
+        <p th:insert="head :: top">
+        </p>
+
+        <h3 class="h3">包含模板 第一种语法</h3>
+        <div th:include="~{head :: top}"></div>
+
+        <h3 class="h3">包含模板 第二种语法</h3>
+        <div th:include="head :: top"></div>
+
+        <div th:include="head :: menu"></div>
+
+        <h3 class="h3">使用整个文件作为复用的内容（整个文件作为模板使用）</h3>
+        <div th:insert="footer :: html"></div>
+
+        <h3 class="h3"></h3>
+        <div th:include="footer :: html"></div>
+
+        <h3 class="h3">使用其他目录中的模板文件</h3>
+        <div th:insert="common/left :: html"></div>
+
+        <h3 class="h3"></h3>
+        <div th:include="common/left :: html"></div>
+    </div>
+</body>
+</html>

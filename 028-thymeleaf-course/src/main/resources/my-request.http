@@ -1,0 +1,15 @@
+###
+GET http://localhost:8080/myBoot/index.html
+
+<> 2024-01-04T190835.200.html
+
+###
+#GET http://localhost:8080/myBoot/tpl/expression1
+GET http://localhost:8080/myBoot/tpl/expression2
+
+<> 2024-01-04T233543.200.html
+<> 2024-01-05T005119.200.html
+
+###
+# 本网页最好到浏览器中测试
+GET http://localhost:8080/myBoot/tpl/link

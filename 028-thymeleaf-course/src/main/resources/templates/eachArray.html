@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>eachList.html(循环Array)</title>
+    <!-- 引入 layui.css -->
+    <link th:href="@{/layui/css/layui.2.8.17.css}" rel="stylesheet">
+    <!-- 引入 layui.js -->
+    <script th:src="@{/layui/layui.2.8.17.js}"></script>
+    <script th:src="@{/js/jquery.3.4.1.js}"></script>
+    <style>
+        .h3 {
+            border-bottom: 1px solid #dcdcdc;
+            margin: 10px 35%;
+        }
+        .layui-table {
+            width: 50%;
+            margin: 10px auto;
+        }
+        /*.content {
+            border-bottom: 1px;
+            margin: 10px 100px;
+        }*/
+    </style>
+</head>
+<body>
+    <div style="text-align: center">
+<!--        <h3 class="h3">循环Array</h3>-->
+    </div>
+    <table class="layui-table">
+        <colgroup>
+            <col width="15%">
+            <col width="15%">
+            <col width="15%">
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th>编号</th>
+
+                <th>id</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+
+                <th>姓名</th>
+                <th>是否是<br>第一行</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user,userStat:${userArray}">
+<!--            <tr th:each="user:${userArray}">-->
+<!--                <td th:text="${userStat.index}"></td>-->
+                <td th:text="${userStat.count} + ' / ' + ${userStat.size}"></td>
+
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.sex}"></td>
+                <td th:text="${user.age}"></td>
+
+                <td th:text="${userStat.current.name}"></td>
+                <td th:text="${userStat.first} ? '是' : '否'"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

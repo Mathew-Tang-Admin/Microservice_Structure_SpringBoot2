@@ -1,0 +1,15 @@
+###
+GET http://localhost:8080/myBoot/hello
+
+<> 2024-01-03T031042.200.html
+
+###
+GET http://localhost:8080/myBoot/model
+
+<> 2024-01-03T054415.200.html
+
+###
+# 打包成功后，在jar所在的目录，cmd下运行java -jar my-boot.jar即可成功运行项目
+GET http://localhost:8080/myBoot/index.html
+
+<> 2024-01-03T054416.200.html

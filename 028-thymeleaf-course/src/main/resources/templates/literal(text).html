@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>literal(text).html</title>
+    <!-- 引入 layui.css -->
+    <link th:href="@{/layui/css/layui.2.8.17.css}" rel="stylesheet">
+    <!-- 引入 layui.js -->
+    <script th:src="@{/layui/layui.2.8.17.js}"></script>
+    <script th:src="@{/js/jquery.3.4.1.js}"></script>
+    <style>
+        .h3 {
+            border-bottom: 1px solid #dcdcdc;
+            margin: 10px 20%;
+        }
+        .layui-table {
+            width: 75%;
+            margin: 10px auto;
+        }
+        p {
+            line-height: 30px;
+            /*border-bottom: 1px solid #dcdcdc;*/
+            /*text-align: center;*/
+        }
+        /*.content {
+            border-bottom: 1px;
+            margin: 10px 100px;
+        }*/
+    </style>
+</head>
+<body>
+
+    <div style="text-align: center">
+        <h3 class="h3"> 文本字面量：使用单引号括起来的字符串 </h3>
+        <p th:text="格式：我是xxx，我所在的城市xxxx"></p>
+        <p th:text="'我是' + ${name} + '，我所在的城市' + ${city}"></p>
+
+        <h3 class="h3"> 数字字面量 </h3>
+        <p th:if="${20 > 5}"> 20 > 5 </p>
+
+        <h3 class="h3"> boolean字面量 </h3>
+        <p th:if="${isLogin eq true}"> 用户已登陆 </p>
+
+        <h3 class="h3"> null字面量 </h3>
+        <p th:if="${myUser != null}"> 有myUser数据 </p>
+
+    </div>
+</body>
+</html>

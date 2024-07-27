@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>inline.html</title>
+    <!-- 引入 layui.css -->
+    <link th:href="@{/layui/css/layui.2.8.17.css}" rel="stylesheet">
+    <!-- 引入 layui.js -->
+    <script th:src="@{/layui/layui.2.8.17.js}"></script>
+    <script th:src="@{/js/jquery.3.4.1.js}"></script>
+    <style>
+        .h3 {
+            border-bottom: 1px solid #dcdcdc;
+            margin: 10px 20%;
+        }
+        .layui-table {
+            width: 75%;
+            margin: 10px auto;
+        }
+        p {
+            line-height: 30px;
+            /*border-bottom: 1px solid #dcdcdc;*/
+            /*text-align: center;*/
+        }
+        /*.content {
+            border-bottom: 1px;
+            margin: 10px 100px;
+        }*/
+    </style>
+
+    <script type="text/javascript" th:inline="javascript">
+        var myname = [[${name}]];
+        var myage = [[${age}]];
+
+        // alert("获取模版中数据: " + myname + ", " + myage)
+
+        function fun() {
+            alert("单击获取模版中数据: " + myname + ", " + [[${sex}]])
+        }
+    </script>
+</head>
+<body>
+
+    <div style="text-align: center">
+        <h3 class="h3"> 内联text 使用内联表达式显示变量值 </h3>
+        <div th:inline="text">
+            <p>我是[[${name}]]，年龄是[[${age}]]</p>
+            <p th:text="'我是' + ${name} + ', 年龄是' + ${age}"></p>
+        </div>
+
+        <div>
+            <p>使用内联text</p>
+            <p>我是[[${name}]]，性别是[[${sex}]]</p>
+        </div>
+
+        <h3 class="h3"> 内联javascript</h3>
+        <div>
+            <input type="button" name="btn" onclick="fun()" value="单击获取模板数据">
+        </div>
+
+    </div>
+</body>
+</html>

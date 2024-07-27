@@ -1,0 +1,8 @@
+###
+POST http://localhost:8080/myServlet
+#GET http://localhost:8080/user/account
+#GET http://localhost:8080/query
+
+<> 2023-12-29T015523.200.html
+<> 2023-12-29T021314.200.html
+<> 2023-12-29T031230.200.html

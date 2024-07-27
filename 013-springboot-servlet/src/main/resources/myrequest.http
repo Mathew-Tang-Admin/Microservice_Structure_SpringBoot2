@@ -1,0 +1,6 @@
+###
+#POST http://localhost:8080/myServlet
+#POST http://localhost:8080/login
+POST http://localhost:8080/test
+
+<> 2023-12-28T234122.200.html

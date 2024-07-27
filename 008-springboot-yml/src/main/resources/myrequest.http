@@ -1,0 +1,6 @@
+###
+#GET http://localhost:8080/myBoot/data
+GET http://localhost:8080/myBoot/school
+
+<> 2023-12-26T192902.200.txt
+<> 2023-12-26T215402.200.txt

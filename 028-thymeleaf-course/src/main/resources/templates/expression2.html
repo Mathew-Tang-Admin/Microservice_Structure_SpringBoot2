@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>expression2.html(选择变量表达式)</title>
+    <style>
+        .h3 {
+            border-bottom: 1px solid #dcdcdc;
+            margin: 10px 100px;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center">
+        <h3 class="h3">标准变量表达式: ${key}</h3>
+        <p><span th:text="${site}"></span></p>
+        <p>获取SysUser对象 属性值</p>
+        <p>id: <span th:text="${myuser.id}"></span></p>
+        <p>姓名: <span th:text="${myuser.name}"></span></p>
+        <p>性别: <span th:text="${myuser.sex}"></span></p>
+        <p>年龄: <span th:text="${myuser.age}"></span></p>
+        <p>使用getName()获取: <span th:text="${myuser.getName()}"></span></p>
+
+        <h3 class="h3">选择变量表达式: *{key}</h3>
+        <div th:object="${myuser}">
+            <p>获取SysUser对象 属性值</p>
+            <p>id: <span th:text="*{id}"></span></p>
+            <p>姓名: <span th:text="*{name}"></span></p>
+            <p>性别: <span th:text="*{sex}"></span></p>
+            <p>年龄: <span th:text="*{age}"></span></p>
+        </div>
+        <p>姓名: <span th:text="*{myuser.name}"></span></p>
+    </div>
+</body>
+</html>

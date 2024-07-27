@@ -1,0 +1,30 @@
+package com.bjpowernode.config;
+
+import com.bjpowernode.web.LoginInterceptor;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+/**
+ * @author MathewTang
+ */
+@Configuration
+public class MyAppConfig implements WebMvcConfigurer {
+    /**
+     * TODO: 添加拦截器对象，注入到容器中
+     * @param registry InterceptorRegistry
+     */
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        // 创建拦截器对象
+        HandlerInterceptor interceptor = new LoginInterceptor();
+
+        // 指定拦截的请求uri地址
+        String[] path = {"/user/**"};
+        // 指定不拦截的地址
+        String[] excludePath = {"/user/login"};
+        registry.addInterceptor(interceptor).addPathPatterns(path)
+                .excludePathPatterns(excludePath);
+    }
+}

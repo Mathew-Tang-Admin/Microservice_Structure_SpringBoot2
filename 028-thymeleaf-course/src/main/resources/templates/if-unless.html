@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>if-unless.html</title>
+    <!-- 引入 layui.css -->
+    <link th:href="@{/layui/css/layui.2.8.17.css}" rel="stylesheet">
+    <!-- 引入 layui.js -->
+    <script th:src="@{/layui/layui.2.8.17.js}"></script>
+    <script th:src="@{/js/jquery.3.4.1.js}"></script>
+    <style>
+        .h3 {
+            border-bottom: 1px solid #dcdcdc;
+            margin: 10px 20%;
+        }
+        .layui-table {
+            width: 75%;
+            margin: 10px auto;
+        }
+        p {
+            line-height: 30px;
+            /*border-bottom: 1px solid #dcdcdc;*/
+            /*text-align: center;*/
+        }
+        /*.content {
+            border-bottom: 1px;
+            margin: 10px 100px;
+        }*/
+    </style>
+</head>
+<body>
+
+    <div style="text-align: center">
+        <h3 class="h3"> if 使用 </h3>
+        <p th:if="${sex == '女'}">性别：女</p>
+        <p th:if="${sex eq '男'}">性别：男</p>
+        <p th:if="${isLogin}">已经登录系统</p>
+        <p th:if="${age > 20}">年龄 &gt; 20</p>
+        <p th:if="${name}" th:text="'name是' + ${name}"></p>
+        <!--""空字符是true-->
+        <p th:if="${cname}">cname是""</p>
+        <!-- null是false -->
+        <p th:if="${isOld}" th:text="'isOld是' + ${isOld}"></p>
+
+        <h3 class="h3"> unless 使用 </h3>
+        <!--判断条件为false，标签体内容显示-->
+        <p th:unless="${sex == '男'}">性别不是男</p>
+        <p th:unless="${isLogin}">未登录系统</p>
+        <p th:unless="${isOld}" th:text="'isOld是' + ${isOld}"></p>
+    </div>
+</body>
+</html>

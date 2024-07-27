@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        以下代码也会生效
+            <base href="https://grocery-store-mathewtang.oss-cn-fuzhou.aliyuncs.com/imgGrocery/"/>
+            <img src="image-20210119150418295.png"/>
+            <hr/>
+            <img src="image-20210115155556662.png"/>
+            <hr/>
+            <img src="image-20210115152427829.png"/>
+            <hr/>
+            <img src="https://grocery-store-mathewtang.oss-cn-fuzhou.aliyuncs.com/imgGrocery/02.png"/>
+            <hr/>
+    -->
+    <!--
+        实测：以下代码会生效
+            <base href="http://localhost:8080/demo/"/>
+            <link rel="stylesheet" href="layui/css/layui.2.8.17.css"/>
+            <script src="layui/layui.2.8.17.js"></script>
+            但是，右击查看源代码，不会看到href的内容添加到href或src的内容中
+    -->
+    <base href="http://localhost:8080/demo/"/>
+    <meta charset="UTF-8">
+    <script src="js/jquery.3.4.1.js"></script>
+    <link rel="stylesheet" href="layui/css/layui.2.8.17.css"/>
+    <script src="layui/layui.2.8.17.js"></script>
+    <title>query.html</title>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#btn").click(function () {
+                var $stuId = $("input[name=stuId]").val();
+                $.ajax({
+                    url: "/demo/student/query",
+                    type: "GET",
+                    dataType: "text",
+                    data: {
+                        id: $stuId
+                    },
+                    success: function (data) {
+                        alert(data)
+                    }
+                })
+            })
+        })
+    </script>
+
+</head>
+<body>
+
+    <div class="layui-container">
+        <div class="layui-form-item">
+            <label class="layui-form-label">学生ID</label>
+            <div class="layui-input-inline layui-input-wrap">
+                <input type="text" name="stuId" lay-verify="required" autocomplete="off" lay-affix="clear"
+                       class="layui-input" />
+                <button class="layui-btn layui-btn-normal" id="btn">查询</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

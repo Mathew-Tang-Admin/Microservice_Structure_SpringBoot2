@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base href="/MyBoot"/>
+    <meta charset="UTF-8">
+    <title>html-property.html(属性使用)</title>
+    <!-- 引入 layui.css -->
+    <link th:href="@{/layui/css/layui.2.8.17.css}" rel="stylesheet">
+    <!-- 引入 layui.js -->
+    <script th:src="@{/layui/layui.2.8.17.js}"></script>
+    <script th:src="@{/js/jquery.3.4.1.js}"></script>
+    <style>
+        .h3 {
+            border-bottom: 1px solid #dcdcdc;
+            margin: 10px 100px;
+        }
+        .content {
+            border-bottom: 1px;
+            margin: 10px 100px;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center">
+        <h3 class="h3">属性使用，在html元素的属性上加入th</h3>
+        <form th:action="@{/loginServlet}" th:method="${methodAttr}">
+            <input th:type="text" th:name="${paramName}" th:value="${userValue}">
+            <input type="button" id="btn" th:onclick="btnClick()" class="layui-btn layui-btn-sm layui-btn-normal" value="按钮">
+        </form>
+
+        <p th:style="${textColor}">这是模板的例子</p>
+
+    </div>
+</body>
+
+<script type="text/javascript">
+    function btnClick() {
+        alert("按钮点击了")
+    }
+
+    $(function () {
+        $("#btn").click(function () {
+            // btnClick();
+            alert("click===jquery")
+        })
+    })
+
+</script>
+
+</html>

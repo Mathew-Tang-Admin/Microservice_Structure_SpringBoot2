@@ -1,0 +1,37 @@
+###
+POST http://localhost:8080/myRedis/redis/add-string?name=myname&value=lisi
+
+<> 2023-12-31T234301.200.txt
+
+###
+GET http://localhost:8080/myRedis/redis/get-string?k=myname
+
+<> 2024-01-01T001607.200.txt
+
+###
+POST http://localhost:8080/myRedis/redis/myname/zhangsan
+
+<> 2024-01-01T004218.200.txt
+
+###
+GET http://localhost:8080/myRedis/redis/get-str/myname
+
+<> 2024-01-01T004233.200.txt
+
+
+###
+#POST http://localhost:8080/myRedis/redis/add-str?k=num&v=学生数量200
+POST http://localhost:8080/myRedis/redis/add-str?k=school&v=bjpowernode
+
+<> 2024-01-01T205955.200.txt
+<> 2024-01-01T210633.200.txt
+
+###
+POST http://localhost:8080/myRedis/redis/add-json
+
+<> 2024-01-01T232834.200.txt
+
+###
+POST http://localhost:8080/myRedis/redis/get-json
+
+<> 2024-01-01T233424.200.txt

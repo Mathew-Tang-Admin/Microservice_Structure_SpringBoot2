@@ -1,0 +1,13 @@
+###
+#POST http://localhost:8080/demo/student/add?name=李四&phone=13556401312&age=28
+#POST http://localhost:8080/demo/student/add?name=李四&age=28
+#GET http://localhost:8080/demo/student/query?id=10
+GET http://localhost:8080/demo/student/query?id=1006
+
+<> 2024-01-11T003045.200.txt
+<> 2024-01-11T042308.200.txt
+<> 2024-01-11T042353.200.txt
+
+<> 2024-01-11T042242.200.txt
+<> 2024-01-11T043552.200.txt
+<> 2024-01-11T043432.200.txt
